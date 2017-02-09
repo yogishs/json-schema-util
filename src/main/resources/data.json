@@ -1,0 +1,52 @@
+{
+	"id": null,
+	"name": "Automated Workflow Pvt Ltd",
+	"industry": {
+    "name": "Information Technology",
+    "id": 2
+  },
+  "addresses": [
+    {
+      "city": "Bangalore",
+      "state": "Karanataka",
+      "id": null,
+      "streetAddress": "No 15, 5th B Cross, Koramangala Industrial Area",
+      "categoryMappings": [
+        {
+          "category": {
+            "category": "HQ",
+            "id": 5
+          },
+          "id": null
+        },
+        {
+          "category": {
+            "category": "Official",
+            "id": 7
+          }
+        }
+      ]
+    },
+    {
+        "city": "Singapore",
+        "state": "Singapore",
+        "id": null,
+        "streetAddress": "Phillip Street",
+        "categoryMappings": [
+          {
+            "category": {
+              "category": "Overseas",
+              "id": 8
+            },
+            "id": null
+          },
+          {
+            "category": {
+              "category": "Official",
+              "id": 7
+            }
+          }
+        ]
+      }
+  ]
+}

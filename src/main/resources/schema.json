@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "definitions": {
+    "address": {
+      "type": "object",
+	  "persistence": "true", 
+	  "javaType": "com.awpl.sandbox.domain.Address",
+      "properties": {
+        "id":			  {"type":"integer", "primaryKey": "true"},
+		"streetAddress": { "type": "string" },
+        "city":           { "type": "string" },
+        "state":          { "type": "string" },
+        "categoryMappings":
+        {
+        	"type": "array",
+        	"items" : {"$ref": "#/definitions/addressCategoryMapping"}
+        }
+		
+      },
+      "required": ["street_address", "city", "state"]
+    },
+    "industry": {
+        "type": "object",
+  	  "persistence": "true", 
+  	  "javaType": "com.awpl.sandbox.domain.Industry",
+        "properties": {
+          "id":			  {"type":"integer", "primaryKey": "true"},
+          "name":          { "type": "string" }
+        },
+        "required": ["name"]
+      },
+      "category": {
+          "type": "object",
+    	  "persistence": "true", 
+    	  "javaType": "com.awpl.sandbox.domain.Category",
+          "properties": {
+            "id":			  {"type":"integer", "primaryKey": "true"},
+            "category":          { "type": "string" }
+          },
+          "required": ["category"]
+        },
+        "addressCategoryMapping": {
+            "type": "object",
+      	  "persistence": "true", 
+      	  "javaType": "com.awpl.sandbox.domain.AddressCategoryMapping",
+            "properties": {
+              "id":			  {"type":"integer", "primaryKey": "true"},
+              "category":     {"$ref": "#/definitions/category" }
+            },
+            "required": ["category"]
+          }
+  },
+
+  "type": "object",
+  "persistence": "true",
+  "javaType": "com.awpl.sandbox.domain.Company",
+  "properties":
+	{
+		"id":			  {"type":"integer", "primaryKey": "true"},
+		"addresses":
+		{
+			"type" : "array",
+			"items" : {"$ref": "#/definitions/address"}
+		},
+		"name":{"type": "string"},
+		"industry":{"$ref": "#/definitions/industry"}
+	},
+	"required": ["billing_address", "industry"]
+}
